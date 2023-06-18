@@ -12,6 +12,35 @@ This repository contains two scripts:
 
 2. A Python script (`load_generator.py`): This script runs a loop that consumes CPU cycles. The number of cycles consumed per second can be configured by adjusting the argument passed to the script.
 
+## Requirements
+
+This script requires:
+
+1. Python 3.x
+2. `sysstat` package
+
+The Python 3.x is a requirement for running the `load_generator.py` script that generates load on the CPU.
+
+The `sysstat` package is used to gather system statistics, specifically CPU usage. It includes the `mpstat` command which we use in our shell script to monitor CPU usage.
+
+To install these:
+
+**Python 3.x:**
+
+Python 3 is usually preinstalled in most Linux distributions. If not, you can install it using your system's package manager. For example, on Ubuntu, you can install it via:
+
+```
+sudo apt-get install python3
+```
+
+**sysstat:**
+
+You can install the `sysstat` package using your system's package manager. For example, on Ubuntu, you can install it via:
+
+```
+sudo apt-get install sysstat
+```
+
 ### How to Use
 Before running the script, ensure it has the necessary permissions to execute:
 
