@@ -59,7 +59,7 @@ screen
 Then, run the script:
 
 ```bash
-./load_controller.sh.sh
+./load_controller.sh
 ```
 
 You can now leave the script running in the background by detaching from the `screen` session. To do this, press `Ctrl + A` and then `D`. Now you can move on with your day, with the assurance that your VM is busy working away!
