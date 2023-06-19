@@ -32,13 +32,13 @@ while true; do
     echo -e "${YELLOW}Average CPU Usage: $avg_usage%. Current number of load generators: ${#load_pids[@]}${NC}"
 
     if (( $(echo "$avg_usage < 12.0" | bc -l) )); then
-        echo -e "${GREEN}CPU usage is below 12%, starting additional load generators...${NC}"
+        echo -e "${GREEN}CPU usage is below 15%, starting additional load generators...${NC}"
         for i in {1..5}; do
             python3 load_generator.py 0.01 & load_pid=$!
             load_pids+=($load_pid)
         done
     elif (( $(echo "$avg_usage >= 12.0 && $avg_usage < 15.0" | bc -l) )); then
-        echo -e "${GREEN}CPU usage is below 15%, starting additional load generator...${NC}"
+        echo -e "${GREEN}CPU usage is between 12% and 15%, starting one additional load generator until 15% CPU usage...${NC}"
         python3 load_generator.py 0.01 & load_pid=$!
         load_pids+=($load_pid)
     elif (( $(echo "$avg_usage > 20.0" | bc -l) )); then
